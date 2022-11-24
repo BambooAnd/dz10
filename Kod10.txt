@@ -1,0 +1,33 @@
+1)netstat -pnltu
+2)nc -lnvp 4444
+3)nc -v 192.168.108.60 4444
+4)iptables -P INPUT DROP
+5)iptables -A INPUT -i lo -j ACCEPT
+6)iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+7)iptables -A INPUT -m state --state NEW -p tcp --dport 22 -j ACCEPT
+8)iptables -A INPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT
+9)iptables -A INPUT -m state --state NEW -p tcp --dport 443 -j ACCEPT
+10)nc -lnvp 4444
+11)nc -v 192.168.108.60 4444
+12)iptables-save  > /usr/local/etc/myconfig.fw
+13)nano /etc/network/interfaces
+14)apt install logchek
+15)wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/500-worst-passwords.txt
+16)hydra -l root -P 500-worst-passwords.txt 127.0.0.1 ssh
+17)tail -f /var/log/auth.log
+18)mkdir -p /data/
+19)sudo -u logcheck logcheck -o > /data/$(date +"%m-%d-%Y-%T").log
+20)cd /data
+21)ls -la
+22)chmod +x 11-24-2022-23:36:29.log
+23)cp 11-24-2022-23:36:29.log > /etc/cron.hourly
+24)cd /etc/cron.hourly
+25)ls -la
+26)apt-get install tripwir
+27)nano /etc/tripwire/twpol.txt
+28)twadmin -m P /etc/tripwire/twpol.txt
+29)tripwire --init
+30)tripwire --check
+31)nano /etc/tripwire/twpol.txt
+32)tripwire --update-policy -Z low /etc/tripwire/twpol.txt
+33)tripwire --check
